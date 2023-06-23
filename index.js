@@ -271,7 +271,10 @@ Aşağıdakileri yapmak için fenomenGonderimSayisi'nı kullanın:
 ÖRNEK: fenomenGonderimSayisi(fenomenler, 'Will Smith') çağrıldığında "136" dönmelidir
 */
 
-function fenomenGonderimSayisi(/*kod*/) {
+function fenomenGonderimSayisi(fenomenler, isim /*kod*/) {
+  for (let i = 0; i < fenomenler.length; i++) {
+    if (fenomenler[i].profile === isim) return fenomenler[i].posts;
+  }
   /*kod*/
 }
 
@@ -286,7 +289,22 @@ Not: Gönderi sayısı belli olmayan (NA) hesaba katmayın.
 Örnek: platformaGoreCokGonderiYapanFenomen(fenomenler, 'TikTok') çağrıldığında "charli damelio" dönmelidir
 */
 
-function platformaGoreCokGonderiYapanFenomen(/*kod*/) {
+function platformaGoreCokGonderiYapanFenomen(fenomenler, sosyalmedya /*kod*/) {
+  const tiktokUsers = [];
+  const instagramUsers = [];
+  const twitterUsers = [];
+
+  for (let i = 0; i < fenomenler.length; i++) {
+    if ((fenomenler[i].platform = "TikTok")) {
+      tiktokUsers.push(fenomenler[i]);
+    }
+    if ((fenomenler[i].platform = "Instagram")) {
+      instagramUsers.push(fenomenler[i]);
+    }
+    if ((fenomenler[i].platform = "Twitter")) {
+      twitterUsers.push(fenomenler[i]);
+    }
+  }
   /*kod*/
 }
 
