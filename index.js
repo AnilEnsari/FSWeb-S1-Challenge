@@ -44,7 +44,7 @@ const fenomenler = [
   },
   {
     number: 2,
-    profile: "Justin Bieber",
+    profile: "Justin Biber",
     followers: 114165664,
     posts: 31371,
     platform: "Twitter",
@@ -289,23 +289,20 @@ Not: Gönderi sayısı belli olmayan (NA) hesaba katmayın.
 Örnek: platformaGoreCokGonderiYapanFenomen(fenomenler, 'TikTok') çağrıldığında "charli damelio" dönmelidir
 */
 
-function platformaGoreCokGonderiYapanFenomen(fenomenler, sosyalmedya /*kod*/) {
-  const tiktokUsers = [];
-  const instagramUsers = [];
-  const twitterUsers = [];
-
+function platformaGoreCokGonderiYapanFenomen(fenomenler, sosyalMedya /*kod*/) {
+  let mostPosts = 0;
+  let mostActive = 0;
   for (let i = 0; i < fenomenler.length; i++) {
-    if ((fenomenler[i].platform = "TikTok")) {
-      tiktokUsers.push(fenomenler[i]);
-    }
-    if ((fenomenler[i].platform = "Instagram")) {
-      instagramUsers.push(fenomenler[i]);
-    }
-    if ((fenomenler[i].platform = "Twitter")) {
-      twitterUsers.push(fenomenler[i]);
+    if (
+      fenomenler[i].platform === sosyalMedya &&
+      fenomenler[i].posts > mostPosts &&
+      fenomenler[i].posts !== "NA"
+    ) {
+      mostPosts = fenomenler[i].posts;
+      mostActive = fenomenler[i].profile;
     }
   }
-  /*kod*/
+  return mostActive;
 }
 
 /* ***** GÖREVLERİN SONU ***** */
